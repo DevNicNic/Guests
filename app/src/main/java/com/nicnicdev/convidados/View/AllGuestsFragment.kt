@@ -1,4 +1,4 @@
-package com.nicnicdev.convidados.ui
+package com.nicnicdev.convidados.View
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.nicnicdev.convidados.ViewModel.AllGuestsViewModel
 import com.nicnicdev.convidados.databinding.FragmentAllGuestsBinding
 
 

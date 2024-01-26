@@ -1,4 +1,4 @@
-package com.nicnicdev.convidados.ui
+package com.nicnicdev.convidados.ViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
