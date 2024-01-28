@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import com.nicnicdev.convidados.Model.GuestModel
 import com.nicnicdev.convidados.R
 import com.nicnicdev.convidados.ViewModel.GuestesFormViewModel
 import com.nicnicdev.convidados.databinding.ActivityGuestFormBinding
@@ -27,9 +28,12 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_save) {
-           // view.sabe(GuestModel(10,"x",false))
+            val name = binding.editName.text.toString()
+            val presence =
+                binding.radioPresent.isChecked // como ao abrir a tela o presence ja esta marcado , vamos colocar ele como verdadeiro.
 
-
+            val model = GuestModel(0, name, presence)
+            viewModel.insert(model)
         }
     }
 }

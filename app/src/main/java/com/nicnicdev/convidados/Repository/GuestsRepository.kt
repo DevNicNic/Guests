@@ -20,17 +20,23 @@ class GuestsRepository private constructor(context: Context) { // esta classe fa
 
     }
 
-    fun insert(guest: GuestModel) {
-        val db = guestDataBase.writableDatabase
+    fun insert(guest: GuestModel): Boolean {
+       return try {
+           val db = guestDataBase.writableDatabase
 
-        val presence = if (guest.presence) 1 else 0 // usando o if como uma instrução
+           val presence = if (guest.presence) 1 else 0 // usando o if como uma instrução
 
-        val values =
-            ContentValues() // esses conteúdos vão carregar as informações para o nosso banco
-        values.put("name", guest.name)
-        values.put("presence", presence)
+           val values =
+               ContentValues() // esses conteúdos vão carregar as informações para o nosso banco
+           values.put("name", guest.name)
+           values.put("presence", presence)
 
-        db.insert("Guest", null, values)
+           db.insert("Guest", null, values)
+           true
+       } catch (e: Exception){
+           false
+
+       }
 
     }
 
