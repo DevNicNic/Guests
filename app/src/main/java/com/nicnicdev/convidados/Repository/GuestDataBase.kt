@@ -3,6 +3,7 @@ package com.nicnicdev.convidados.Repository
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import com.nicnicdev.convidados.Constants.DataBaseConstants
 
 class GuestDataBase(context: Context) : SQLiteOpenHelper(context, NAME, null, VERSION) {
 
@@ -14,11 +15,11 @@ class GuestDataBase(context: Context) : SQLiteOpenHelper(context, NAME, null, VE
     override fun onCreate(db: SQLiteDatabase) {
         // criação do banco
         db.execSQL(
-            "CREATE TABLE Guest (" +
-                    "id integer primary key autoincrement," + // auto incremento , portanto responsabilidade do banco.
-                    " name text," +
-                    " presence integer);"
-        )
+            "CREATE TABLE " + DataBaseConstants.GUEST.TABLE_NAME + "(" +
+                    DataBaseConstants.GUEST.COLUMNS.ID + " integer primary key autoincrement, " +
+                    DataBaseConstants.GUEST.COLUMNS.NAME + " text, " +
+                    DataBaseConstants.GUEST.COLUMNS.PRESENCE + " integer);"
+        );
 
     }
 

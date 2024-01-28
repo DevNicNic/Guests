@@ -2,6 +2,7 @@ package com.nicnicdev.convidados.Repository
 
 import android.content.ContentValues
 import android.content.Context
+import com.nicnicdev.convidados.Constants.DataBaseConstants
 import com.nicnicdev.convidados.Model.GuestModel
 
 class GuestsRepository private constructor(context: Context) { // esta classe faz a manipulação de dados usando a conecção com o banco.
@@ -28,10 +29,10 @@ class GuestsRepository private constructor(context: Context) { // esta classe fa
 
            val values =
                ContentValues() // esses conteúdos vão carregar as informações para o nosso banco
-           values.put("name", guest.name)
-           values.put("presence", presence)
+           values.put(DataBaseConstants.GUEST.COLUMNS.NAME, guest.name)
+           values.put(DataBaseConstants.GUEST.COLUMNS.PRESENCE, presence)
 
-           db.insert("Guest", null, values)
+           db.insert(DataBaseConstants.GUEST.TABLE_NAME, null, values)
            true
        } catch (e: Exception){
            false
