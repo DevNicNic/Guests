@@ -4,19 +4,21 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class GuestDataBase(context: Context): SQLiteOpenHelper(context, NAME, null, VERSION) {
+class GuestDataBase(context: Context) : SQLiteOpenHelper(context, NAME, null, VERSION) {
 
-    companion object{
+    companion object {
         private const val NAME = "guestdb"
         private const val VERSION = 1
     }
 
-    override fun onCreate(db: SQLiteDatabase ) {
+    override fun onCreate(db: SQLiteDatabase) {
         // criação do banco
-        db.execSQL("CREATE TABLE Guest (" +
-                "id integer primary key autoincrement," +
-                " name text," +
-                " presence integer);")
+        db.execSQL(
+            "CREATE TABLE Guest (" +
+                    "id integer primary key autoincrement," + // auto incremento , portanto responsabilidade do banco.
+                    " name text," +
+                    " presence integer);"
+        )
 
     }
 
